@@ -19,9 +19,26 @@
 import itertools
 
 def best_hand(hand):
+    hands = list(itertools.combinations(hand, 5))
+    return max(hand_rank(hands), key = hand_rank)
+
+
     "From a 7-card hand, return the best 5 card hand."
-    # Your code here
-    pass
+    highestRank = (0, 0, 0)
+    highestHand = 0
+    hands = itertools.combinations(hand, 5)
+    for handCombo in hands:
+        handRank = hand_rank(handCombo)
+        if handRank > highestRank:
+            highestRank = handRank
+            highestHand = handCombo
+    return highestHand
+    
+
+    # Alternative:
+    hands = list(itertools.combinations(hand, 5))
+    return max(hands)
+
     
 # ------------------
 # Provided Functions
