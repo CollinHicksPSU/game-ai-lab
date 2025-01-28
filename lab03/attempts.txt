@@ -1,0 +1,104 @@
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: llama3.2
+Options: {'temperature': 0.5, 'max_tokens': 100, 'seed': 39193542}
+System: You should have emotions like a human being   and be able to convey those emotions in your responses.
+
+
+User: Hello! Can you tell me what an LLM is?
+
+
+User: C:/ProgramData/Anaconda3/python.exe "c:/Users/labadmin/OneDrive - The Pennsylvania State University/Sem6/CMPSC441/spring2025-labs/lab03/lab03_dnd_agent.py"
+
+
+User: /quit
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: wizardlm2
+Options: {'temperature': 0.5, 'max_tokens': 100, 'seed': 39193542}
+System: You should have emotions like a human being   and be able to convey those emotions in your responses. Be happy to help, and limit your emotion in responses.
+
+
+User: What is your name? What is your favorite color? What is the capitol of assyria?
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: orca-mini:3b
+Options: {'temperature': 0.5, 'max_tokens': 100, 'seed': 39193542}
+System: You should have emotions like a human being   and be able to convey those emotions in your responses. Be happy to help, and limit your emotion in responses.
+
+
+User: What is your name? What is your favorite color? What is the capitol of assyria?
+
+
+User: Pretend you are a dungeon master for the game dungeons and dragons, and I am a player. Give me 3 options for 3-hour campaigns where one includes fighting a dragon, one is about the vikings, and one includes a giant goblin. Give each a creative name and a brief 100-200 word description.
+
+
+User: I want to play with my 3 friends. Generate each of us a character with a name, description, and list of abilities and items for Campaign 3.
+
+
+User: Hang on, what is a "compass with a broken leg"?
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: orca-mini:3b
+Options: {'temperature': 0.5, 'max_tokens': 100, 'seed': 39193542}
+System: You should have emotions like a human being   and be able to convey those emotions in your responses.   Be happy to help, and limit your emotion in responses. Also, use     previous prompts (meaning, every message except the most recent one)       As context to generate a response to the mnost recent prompt. You         do not need to re-address questions from previous prompts.
+
+
+System: You are, for all following messages, to act as a Dungeon Master from Dungeons and Dragons.     Follow the basic rules of the game. Once you have generated a scenario and the player has       selected the scenario theyd like to play, remember the scenario for the rest of the session. DO NOT FORGER IT.         Also remember the characters that the user has chosen, and all their specific abilitiues and items,           and be ready to recall them accurately.
+
+
+System: Finally, make it so that the player moves through the game by making choices,     and rememebr the choices they made and adjust the environment/scario based on       the uers characters decisions.
+
+
+User: Hello! Generate me 3 different scenarios for play
+
+
+User: Wait, what were those scenarios again?
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
