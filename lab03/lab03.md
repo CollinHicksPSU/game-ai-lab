@@ -1,6 +1,6 @@
 # Prompt Engineering Process
 
-Attempt 1: Working! 
+## Attempt 1: Working! 
 Parameters:
 
 model = 'llama3.2'
@@ -14,12 +14,12 @@ messages = [
 - Ok I also forgot to close the python window and it responded to the command I tried to run. Now it's over
 
 
-Attempt 2: 
+## Attempt 2: 
 - Changed the model to wizardlm2. Had to run command "ollama run wizardlm2"
     - Ok, this ran the actual llm in the command line, but it also installed wizardlm2, so now the agent runs in our file. Not what I meant to do but it works
 - Response worked, it is just taking so long. I'm gonna keep trying to find faster-running models
 
-Attempt 3:
+## Attempt 3:
 Params:
 sign_your_name = 'Collin Hicks'
 model = 'orca-mini:3b'
@@ -38,7 +38,7 @@ messages = [
 - Alright, it is already not making a ton of sense. One of the items it gave one of the characters is a "compass with a broken leg"...
 - It is already confused after 3 prompts. It regenerated some characters and is not really making sense.
 
-Attempt 4:
+## Attempt 4:
 - Changing the initial params.
 new params:
 sign_your_name = 'Collin Hicks'
