@@ -7,7 +7,7 @@ from util.llm_utils import pretty_stringify_chat, ollama_seed as seed
 
 # Add you code below
 sign_your_name = 'Collin Hicks'
-model = 'orca-mini:3b'
+model = 'deepseek-r1:1.5b'
 options = {'temperature': 0.5, 'max_tokens': 100}
 messages = [
   {'role': 'system', 'content': 
