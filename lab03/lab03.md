@@ -1,7 +1,7 @@
 # Prompt Engineering Process
 
 ## Attempt 1: Working! 
-Parameters:
+- Parameters:
 
 model = 'llama3.2'
 options = {'temperature': 0.5, 'max_tokens': 100}
@@ -20,7 +20,8 @@ messages = [
 - Response worked, it is just taking so long. I'm gonna keep trying to find faster-running models
 
 ## Attempt 3:
-Params:
+- Params:
+
 sign_your_name = 'Collin Hicks'
 model = 'orca-mini:3b'
 options = {'temperature': 0.5, 'max_tokens': 100}
@@ -41,6 +42,7 @@ messages = [
 ## Attempt 4:
 - Changing the initial params.
 new params:
+
 sign_your_name = 'Collin Hicks'
 model = 'orca-mini:3b'
 options = {'temperature': 0.5, 'max_tokens': 100}
