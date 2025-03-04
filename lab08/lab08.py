@@ -27,9 +27,12 @@ class OllamaEmbeddingFunction:
     def __init__(self, model_name="nomic-embed-text"):
         self.model_name = model_name
     
+    ##Function to complete
     def __call__(self, input: List[str]) -> List[List[float]]:
-        """Generate embeddings for a list of texts using Ollama"""
-        pass
+        result:List[List[float]]
+        for data, i in input:
+            result[i].append(ollama.embed(model=self.model_name, input=data))
+        return result
 
 
 def load_documents(data_dir: str) -> Dict[str, str]:
@@ -50,6 +53,10 @@ def chunk_documents(documents: Dict[str, str], chunk_size: int = 500, chunk_over
     """
     Split documents into smaller chunks for embedding,
     using LangChain's RecursiveCharacterTextSplitter
+
+
+    chunk_size will change the amount of characters in a chunk
+    chunk_overlap sets the overlap of characters from one chunk to the next
     """
     chunked_documents = []
     
@@ -82,7 +89,7 @@ def setup_chroma_db(chunks: List[Dict[str, Any]], collection_name: str = "dnd_kn
     """
     # Initialize ChromaDB Ephemeral client
     client = chromadb.Client()
-    # Initialize ChromaDB Persistent client
+    # Initialize ChromaDB Persistent client - uncommenting next line will make a persistent database at the specified path
     #client = chromadb.PersistentClient(path="/path/to/save/to")
     
     # Create embedding function
@@ -111,7 +118,7 @@ def setup_chroma_db(chunks: List[Dict[str, Any]], collection_name: str = "dnd_kn
     print(f"Added {len(chunks)} chunks to ChromaDB collection '{collection_name}'")
     return collection
 
-
+##Function to complete
 def retrieve_context(collection: chromadb.Collection, query: str, n_results: int = 3) -> List[str]:
     """
     Retrieve relevant context from ChromaDB based on the query
@@ -172,7 +179,8 @@ def main():
     """
     
     # Set embedding and LLM models
-    embedding_model = "nomic-embed-text"  # Change to your preferred embedding model
+    #dembedding_model = "nomic-embed-text"  # Change to your preferred embedding model
+    embedding_model = "llama3.2"  # Change to your preferred embedding model
     llm_model = "llama3.2:latest"  # Change to your preferred LLM model
     
     # 1. Load documents
