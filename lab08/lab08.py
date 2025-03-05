@@ -29,9 +29,8 @@ class OllamaEmbeddingFunction:
     
     ##Function to complete
     def __call__(self, input: List[str]) -> List[List[float]]:
-        result:List[List[float]]
-        for data, i in input:
-            result[i].append(ollama.embed(model=self.model_name, input=data))
+        embeddings = ollama.embed(model = self.model_name, input = input)
+        result = embeddings.get("embeddings",[])
         return result
 
 
@@ -109,6 +108,7 @@ def setup_chroma_db(chunks: List[Dict[str, Any]], collection_name: str = "dnd_kn
     )
     
     # Add documents to collection
+    print(len(chunks))
     collection.add(
         ids=[chunk["id"] for chunk in chunks],
         documents=[chunk["text"] for chunk in chunks],
@@ -118,12 +118,19 @@ def setup_chroma_db(chunks: List[Dict[str, Any]], collection_name: str = "dnd_kn
     print(f"Added {len(chunks)} chunks to ChromaDB collection '{collection_name}'")
     return collection
 
-##Function to complete
+###Function to complete
 def retrieve_context(collection: chromadb.Collection, query: str, n_results: int = 3) -> List[str]:
     """
     Retrieve relevant context from ChromaDB based on the query
     """
-    pass
+
+    result = collection.query(
+            query_texts = [query], 
+            n_results = n_results,
+            #where = {"metadata_field": "is_equal_to_this"},
+            #where_document = {"$contains": "search_string"}
+        )
+    return result
 
 
 
@@ -179,8 +186,7 @@ def main():
     """
     
     # Set embedding and LLM models
-    #dembedding_model = "nomic-embed-text"  # Change to your preferred embedding model
-    embedding_model = "llama3.2"  # Change to your preferred embedding model
+    embedding_model = "nomic-embed-text"  # Change to your preferred embedding model
     llm_model = "llama3.2:latest"  # Change to your preferred LLM model
     
     # 1. Load documents
