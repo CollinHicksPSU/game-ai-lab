@@ -127,10 +127,8 @@ def retrieve_context(collection: chromadb.Collection, query: str, n_results: int
     result = collection.query(
             query_texts = [query], 
             n_results = n_results,
-            #where = {"metadata_field": "is_equal_to_this"},
-            #where_document = {"$contains": "search_string"}
         )
-    return result
+    return [str(result['documents'])]
 
 
 
